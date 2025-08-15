@@ -1,98 +1,79 @@
-🏛 RTO Big Data Web Scraper & AI-Powered Crawler
+# 🏛 RTO Big Data Web Scraper & AI-Powered Crawler
 
-An automated data extraction pipeline designed to scrape, clean, and validate Registered Training Organisation (RTO) data from the official training.gov.au portal.
-This system combines traditional scraping (Selenium, BeautifulSoup, Playwright) with LLM-powered crawling for dynamic JavaScript-heavy pages, enabling large-scale collection of structured, up-to-date educational course data.
+An **automated data extraction pipeline** that scrapes, cleans, and validates **Registered Training Organisation (RTO)** data from [training.gov.au](https://training.gov.au).  
 
-✨ Features
+This project combines **traditional scraping** (Selenium, BeautifulSoup, Playwright) with **LLM-powered crawling** for **JavaScript-heavy content**, enabling large-scale, up-to-date, and structured educational course datasets.
 
-Multi-source scraping: Training.gov.au → RTO websites for cross-verification
+---
 
-4,000+ universities & 15,000+ courses processed per execution
+## ✨ Features
 
-Automated pagination & sub-link crawling
+- 📊 **Processes 4,000+ RTOs** and **15,000+ courses** in one execution  
+- 🔄 **Automated pagination & deep crawling** from gov pages to official RTO sites  
+- 🤖 **LLM-assisted data extraction** with:
+  - **Gemini 2.5 Flash** – cost-efficient (<90k tokens/op)
+  - **DeepSeek R1** – semantic verification & keyword matching  
+- 🖥 **Hybrid HTML/Markdown/JSON parsing** for dynamic content
+- 🗂 **CSV & JSON output** for backend/API pipelines
+- 🧹 **Data cleaning & normalization** with pandas
+- ⚡ Headless browser mode for faster execution
 
-LLM-driven content parsing with:
+---
 
-Gemini 2.5 Flash – optimized for cost-efficient extraction (<90,000 tokens/op)
+## 🛠 Technologies Used
 
-DeepSeek R1 – for natural language keyword validation & course confirmation
+### Scraping & Automation
 
-Hybrid HTML/Markdown/JSON parsing to bypass JavaScript rendering issues
+- **Python 3.11+**
+- **Selenium** – DOM scraping & interactions
+- **BeautifulSoup4** – HTML parsing
+- **Playwright** – JavaScript-rendered content scraping
+- **Crawl4AI** – AI-guided crawling & sub-URL targeting
 
-CSV + JSON export for easy backend ingestion
+### AI Models
 
-Data cleaning pipeline using pandas for normalization
+- **Gemini 2.5 Flash** – Structured extraction from complex layouts
+- **DeepSeek-R1** – Course existence & metadata verification
 
-Headless browser support for speed & scalability
+### Data Processing & Export
 
-🛠 Technologies Used
+- **pandas** – Data cleaning & transformation
+- **CSV** – Government schema-compatible export
+- **JSON** – API-ready format
 
-Scraping & Automation
+---
 
-Python 3.11+
+## 📂 Workflow
 
-Selenium – DOM scraping & interaction
+1. **Load Input CSV**  
+   - Columns: `Code`, `Web Address`
+   
+2. **Phase 1 – Government Scraping**  
+   For each code, scrape:
+   - `/summary` – Organisation details
+   - `/contacts` – Contact info
+   - `/addresses` – Physical/postal addresses
+   - `/qualifications` – Offered qualifications  
 
-BeautifulSoup4 – HTML parsing
+3. **Phase 2 – AI Verification**  
+   - Visit each RTO’s official website  
+   - Search for each course using **LLM keyword prompts**  
+   - Flag discrepancies & missing courses
 
-Playwright – JavaScript-rendered content scraping
+4. **Phase 3 – Cleaning & Structuring**  
+   - Normalize dates, addresses, contact info  
+   - Remove duplicates  
+   - Match to CSV schema
 
-Crawl4AI – AI-guided multi-layer crawling & field targeting
+5. **Output**  
+   - Final **CSV**
+   - Summary report of broken links & mismatches
 
-AI Models
+---
 
-Gemini 2.5 Flash – Structured data extraction from complex layouts
+## 🔧 Getting Started
 
-Deepseek-R1 – Keyword/semantic verification of course listings
-
-Data Processing & Output
-
-pandas – Cleaning, structuring, and exporting
-
-CSV – Final cleaned datasets for backend import
-
-JSON – Structured export for API pipelines
-
-📂 Project Workflow
-
-Load Input List
-A CSV containing RTO Code and Web Address.
-
-Phase 1: Government Data Scrape
-
-Visit training.gov.au detail pages for each code:
-
-/summary
-/contacts
-/addresses
-/qualifications
-
-
-Extract structured RTO info (legal name, ABN, status, courses, etc.).
-
-Phase 2: AI-Powered Web Verification
-
-Visit each RTO’s official website.
-
-Search for each course code/title using LLM-powered crawling.
-
-Flag discrepancies between government and official site.
-
-Phase 3: Data Cleaning & Structuring
-
-Normalize addresses, phone formats, date fields.
-
-Deduplicate qualification lists.
-
-Standardize naming conventions.
-
-Output
-
-Final CSV (matching training.gov.au schema)
-
-Summary Report: broken links, course mismatches, data gaps.
-
-🚀 Getting Started
+```bash
 # 1. Clone the repository
 git clone https://github.com/your-username/rto-big-data-scraper.git
 cd rto-big-data-scraper
@@ -109,6 +90,3 @@ pip install -r requirements.txt
 # 5. Run the scraper
 python scrape_rtos.py --input data/input.csv --output data/final_rtos.csv
 
-📊 Example Output
-Code	Legal Name	Business Name	Status	ABN	Web Address	Qualification 1	Qualification 2	...
-0049	Australian Institute of Management	AIM VET	Current	40009668553	http://aim.com.au	Diploma of Leadership	Certificate IV in Business	...
